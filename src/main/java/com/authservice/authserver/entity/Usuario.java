@@ -20,14 +20,20 @@ public class Usuario implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     private String username;
     private String password;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuario_role", joinColumns = @JoinColumn(name = "usuario_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
+
     private boolean expired = false;
+
     private boolean locked = false;
+
     private boolean credentialsExpired = false;
+
     private boolean disable = false;
 
 
